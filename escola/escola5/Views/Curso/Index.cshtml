@@ -1,0 +1,31 @@
+﻿
+<h2>Cursos</h2>
+
+<div ng-controller="CursoController" class="row">
+    <div>
+        Nome do curso<input class="form-control" type="text" ng-model="curso.Curso" />
+
+        <input class="btn btn-default" type="button" value="Salvar" ng-show="!curso.ID" ng-click="SalvarCurso()" />
+        <input class="btn btn-default" type="button" value="Editar" ng-show="curso.ID" ng-click="SalvarCurso()" />
+    </div>
+    <br />
+
+    <table class="table table-striped" style="width:100%" ng-show="Cursos">
+        <tr>
+            <th>Id</th>
+            <th>Nome do curso</th>
+            <th>Excluir</th>
+            <th>Editar</th>
+        </tr>
+        <tr ng-repeat="x in Cursos">
+            <td>{{x.ID}}</td>
+            <td>{{x.Curso}}</td>
+            <td ng-click="DeletarCurso(x.ID)"><span class="glyphicon glyphicon-remove"></span></td>
+            <td ng-click="EditarCurso(x)"><span class="glyphicon glyphicon-pencil"></span></td>
+    </table>
+
+
+
+</div>
+
+<script src="~/Scripts/controller/controllerCurso.js"></script>
